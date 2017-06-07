@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="adabot">
-
+    
     <!--
          Properties for the robot bodies
     -->
@@ -13,23 +13,24 @@
     <!-- Chassis parameters -->
     <xacro:property name="ch_density_factor" value="0.4" />
     <xacro:property name="ch_density" value="${mat_density * ch_density_factor}" />
-    <xacro:property name="ch_length"  value="${0.100 * SCALE}" />
-    <xacro:property name="ch_width"   value="${0.070 * SCALE}" />
+    <xacro:property name="ch_length"  value="${$(arg ch_length) * SCALE}" />
+    <xacro:property name="ch_width"   value="${$(arg ch_width) * SCALE}" />
     <xacro:property name="ch_height"  value="${0.035 * SCALE}" />
     <xacro:property name="ch_mass"    value="${ch_density * ch_length * ch_width * ch_height}" />
 
     <!-- Wheel parameters -->
     <xacro:property name="wh_density_factor" value="0.4" />
     <xacro:property name="wh_density" value="${mat_density * wh_density_factor}" />
-    <xacro:property name="wh_radius"  value="${0.020 * SCALE}" />
+    <xacro:property name="wh_radius"  value="${$(arg wh_radius) * SCALE}" />
     <xacro:property name="wh_length"  value="${0.005 * SCALE}" />
     <xacro:property name="wh_mass"    value="${wh_density * PI * (wh_radius**2) * wh_length}" />
 
     <!-- Weg parameters -->
-    <xacro:property name="wg_length" value="${wh_radius*2}" />
-    <xacro:property name="wg_width"  value="${0.001 * SCALE}" />
-    <xacro:property name="wg_height" value="${0.002 * SCALE}" />
-    <xacro:property name="wg_mass"   value="${mat_density * wg_length * wg_width * wg_height}" />
+    <xacro:property name="wg_per_wheel" value="$(arg wg_per_wheel)" /> 
+    <xacro:property name="wg_length"    value="${wh_radius*2}" />
+    <xacro:property name="wg_width"     value="${0.001 * SCALE}" />
+    <xacro:property name="wg_height"    value="${0.002 * SCALE}" />
+    <xacro:property name="wg_mass"      value="${mat_density * wg_length * wg_width * wg_height}" />
 
     <!-- Axle parameters -->
     <xacro:property name="ax_axis" value="0 1 0" />
@@ -159,12 +160,34 @@
                 (4) pass the value to the wheel macro
                 (5) have some ugly conditionals below
         -->
-        <xacro:weg wheel="${suffix}" number="1" parent="${wh_name}" total="5" />
-        <xacro:weg wheel="${suffix}" number="2" parent="${wh_name}" total="5" />
-        <xacro:weg wheel="${suffix}" number="3" parent="${wh_name}" total="5" />
-        <xacro:weg wheel="${suffix}" number="4" parent="${wh_name}" total="5" />
-        <xacro:weg wheel="${suffix}" number="5" parent="${wh_name}" total="5" />
-
+        <xacro:if value="${wg_per_wheel > 0}">
+            <xacro:weg wheel="${suffix}" number="1" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        <xacro:if value="${wg_per_wheel > 1}">
+            <xacro:weg wheel="${suffix}" number="2" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        <xacro:if value="${wg_per_wheel > 2}">
+            <xacro:weg wheel="${suffix}" number="3" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        <xacro:if value="${wg_per_wheel > 3}">
+            <xacro:weg wheel="${suffix}" number="4" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        <xacro:if value="${wg_per_wheel > 4}">
+            <xacro:weg wheel="${suffix}" number="5" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        <xacro:if value="${wg_per_wheel > 5}">
+            <xacro:weg wheel="${suffix}" number="6" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        <xacro:if value="${wg_per_wheel > 6}">
+            <xacro:weg wheel="${suffix}" number="7" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        <xacro:if value="${wg_per_wheel > 7}">
+            <xacro:weg wheel="${suffix}" number="8" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        <xacro:if value="${wg_per_wheel > 8}">
+            <xacro:weg wheel="${suffix}" number="9" parent="${wh_name}" total="${wg_per_wheel}" />
+        </xacro:if>
+        
     </xacro:macro>
 
     <!--
