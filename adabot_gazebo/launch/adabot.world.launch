@@ -17,6 +17,15 @@
   <arg name="headless"     default="false"/>
   <arg name="debug"        default="false"/>
   <arg name="model"        default="$(find adabot_description)/urdf/adabot.main.xacro"/>
+  <!-- These arguments are used to adjust parameters in the adabot xacro file -->
+  <!--  ch_length     : length of chasis -->
+  <!--  ch_width      : width of chasis -->
+  <!--  wg_per_wheel  : number of wegs on each of wheels -->
+  <!--  wh_radius     : radius of each wheel -->
+  <arg name="ch_length"     default="0.100" />
+  <arg name="ch_width"      default="0.070" />
+  <arg name="wg_per_wheel"  default="5"     />
+  <arg name="wh_radius"     default="0.020" />
 
   <!--  -->
   <!-- Start with the empty_world.launch file -->
@@ -31,7 +40,11 @@
   </include>
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)
+                ch_length:=$(arg ch_length)
+                ch_width:=$(arg ch_width)
+                wg_per_wheel:=$(arg wg_per_wheel)
+                wh_radius:=$(arg wh_radius)" />
 
   <!-- Spawn a robot into Gazebo from the ROS Parameter Server -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model adabot" />
