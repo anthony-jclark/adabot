@@ -1,4 +1,3 @@
-
 # NOTE: The build lifecycle on Travis.ci:
 #
 #   checkout git repository and cd into repo
@@ -49,3 +48,16 @@ script:
   #       the -c flag tells bash to execute commands from the given string
   #         the source built-in command executes the script **in the current shell**
   - docker run -v $(pwd):$(pwd) ros:kinetic-ros-base /bin/bash -c "source $(pwd)/.travis.sh"
+=======
+script:
+- |
+  git config user.name "anthony-jclark"
+  git config user.email "anthonyjclark@gmail.com"
+  git remote remove origin
+  git remote add origin https://$GITHUB_API_KEY@github.com/anthony-jclark/adabot-wiki.git > /dev/null 2>&1
+  git remote add upstream https://$GITHUB_API_KEY@github.com/anthony-jclark/adabot.wiki.git > /dev/null 2>&1
+  git fetch origin
+  git fetch upstream
+  git merge upstream/master --no-edit
+  git push origin HEAD:master > /dev/null 2>&1
+  git push upstream HEAD:master > /dev/null 2>&1
