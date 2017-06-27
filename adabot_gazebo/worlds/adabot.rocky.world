@@ -105,7 +105,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/dillon/.ros_repos/adabot/adabot_gazebo/worlds/worldModels/rockyPlane/meshes/resultXml.dae</uri>
+              <uri>/model://rockyPlane/meshes/resultXml.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -129,7 +129,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/dillon/.ros_repos/adabot/adabot_gazebo/worlds/worldModels/rockyPlane/meshes/resultXml.dae</uri>
+              <uri>model://rockyPlane/meshes/resultXml.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
