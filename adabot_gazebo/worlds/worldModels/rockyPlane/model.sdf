@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
-  <model name='TwinPeaks'>
+  <model name='rockyPlane'>
     <link name='link_0'>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <inertial>
@@ -18,7 +18,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/dillon/ros_workspaces/adabot_ws/src/adabot/adabot_gazebo/worlds/worldModels/twinPeaks/meshes/TwinPeaks.dae</uri>
+            <uri>model://rockyPlane/meshes/resultXml.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -42,7 +42,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/dillon/ros_workspaces/adabot_ws/src/adabot/adabot_gazebo/worlds/worldModels/twinPeaks/meshes/TwinPeaks.dae</uri>
+            <uri>model://rockyPlane/meshes/resultXml.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -92,7 +92,7 @@
         </surface>
       </collision>
     </link>
-    <static>1</static>
+    <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
   </model>
 </sdf>

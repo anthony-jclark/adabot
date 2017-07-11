@@ -62,7 +62,7 @@
     </model>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>3.42351 -3.71434 2.46965 0 0.423643 2.1642</pose>
+        <pose frame=''>8.99035 -0.224841 1.39362 0 0.123643 3.1322</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -87,8 +87,8 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='Untitled'>
-      <link name='link_1'>
+    <model name='rockyPlane'>
+      <link name='link_0'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
@@ -105,7 +105,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://twinPeaks/meshes/TwinPeaks.dae</uri>
+              <uri>/model://rockyPlane/meshes/resultXml.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -129,7 +129,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://twinPeaks/meshes/TwinPeaks.dae</uri>
+              <uri>model://rockyPlane/meshes/resultXml.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -185,28 +185,28 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>0 0 0 0 -0 0</pose>
+      <pose frame=''>0 0 -0.097401 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>31 894500000</sim_time>
-      <real_time>36 743800888</real_time>
-      <wall_time>1497736800 42299497</wall_time>
-      <iterations>63789</iterations>
-      <model name='Untitled'>
+      <sim_time>10 393000000</sim_time>
+      <real_time>11 290341739</real_time>
+      <wall_time>1498527895 736734527</wall_time>
+      <iterations>20786</iterations>
+      <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_1'>
+        <link name='link'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='ground_plane'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+      <model name='rockyPlane'>
+        <pose frame=''>-0.030558 1.72609 -0.097401 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+        <link name='link_0'>
+          <pose frame=''>-0.030558 1.72609 -0.097401 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
